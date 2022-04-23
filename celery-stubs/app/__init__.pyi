@@ -11,6 +11,8 @@ from celery.utils.threads import _LocalStack
 _T = TypeVar("_T", bound=Task)
 
 @overload
+def shared_task(self, fun: Callable[..., Any]) -> _T: ...
+@overload
 def shared_task(
     *,
     name: str = ...,
